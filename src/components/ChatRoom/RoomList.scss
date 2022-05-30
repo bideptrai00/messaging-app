@@ -1,0 +1,24 @@
+.wrapper{   
+    >.ant-collapse-item {
+         >.ant-collapse-header{
+             color: rgb(255, 0, 0);
+         }
+         >.ant-collapse-content{
+             
+            >.ant-collapse-content-box{
+                display: flex;
+                 flex-direction: column ;
+                 justify-content: center;
+                padding: 0 40px;
+                a{
+                    display: block;
+                    color: white;
+                    padding-bottom: 8px    ;
+                }
+            }
+         }
+    }
+}
+
+
+
