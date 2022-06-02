@@ -93,6 +93,7 @@ export default function ChatWindow() {
         <div className={cx("message-list")}>
           {messages.map((message) => (
             <Message
+              myMessage={message.uid === uid}
               key={message.id}
               text={message.text}
               displayName={message.displayName}

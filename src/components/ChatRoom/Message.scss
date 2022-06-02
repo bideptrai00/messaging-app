@@ -1,13 +1,50 @@
 .mess-wrapper{
-    margin-bottom: 15px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+    
 }
 
 .mess-title{
 
 }
 
+.myMessage{
+    
+    align-items: flex-end;
+}
+.mess-content{
+   
+    
+  
+    
+}
+
+.myMessage > .mess-content > .mess-text
+{
+    
+    background-color: rgb(0, 132, 255);
+    
+    
+   
+}
+
 .mess-content{
     margin-left: 30px;
+    max-width: 70%;
+    object-fit: contain;
+}
+
+.mess-text{
+    background-color: #e4e6eb;
+    padding: 8px 16px;
+    color: #050505;
+    display: block; 
+    width: fit-content;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    border-radius: 50px;
 }
 
 .mess-auth{
