@@ -1,4 +1,4 @@
-import { Col, Grid, Row } from "antd";
+import { Col, Row } from "antd";
 import React from "react";
 import ChatWindow from "./ChatWindow";
 import Sidebar from "./Sidebar";

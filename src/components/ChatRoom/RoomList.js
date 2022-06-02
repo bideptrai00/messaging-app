@@ -1,4 +1,4 @@
-import React, { useContext, useMemo } from "react";
+import React, { useContext } from "react";
 import { Button, Collapse, Typography } from "antd";
 import { PlusSquareOutlined } from "@ant-design/icons";
 import styles from "./RoomList.scss";
@@ -10,15 +10,8 @@ const cx = classNames.bind(styles);
 const { Panel } = Collapse;
 
 export default function RoomList() {
-  const {
-    rooms,
-    isAddRoomVisible,
-    setIsAddRoomVisible,
-    selectorRoomID,
-    setSelectorRoomID,
-  } = useContext(AppContext);
-
-  console.log("rooms", rooms);
+  const { rooms, setIsAddRoomVisible, setSelectorRoomID } =
+    useContext(AppContext);
 
   return (
     <Collapse className={cx("wrapper")} ghost defaultActiveKey={["1"]}>

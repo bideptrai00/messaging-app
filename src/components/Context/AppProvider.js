@@ -1,7 +1,4 @@
-import { useNavigate } from "react-router-dom";
-import { auth } from "../../firebase/config";
-
-import React, { useContext, useEffect, useMemo, useState } from "react";
+import React, { useContext, useMemo, useState } from "react";
 
 import { AuthContext } from "./AuthProvider";
 import useFireStore from "../../hooks/useFireStore";
@@ -21,10 +18,10 @@ export default function AppProvider({ children }) {
     return {
       fieldName: "members",
       operator: "array-contains",
-      compareValue: uid,
+      compareValue: "v5BUmMVwJ4YEAsJ2FH1QFQJNH9D3",
     };
-  }, [uid]);
-
+  }, []);
+  console.log("first", uid);
   const rooms = useFireStore("rooms", roomlist);
 
   const roomCurrent = useMemo(

@@ -1,12 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Modal, Form, Input } from "antd";
 import { AppContext } from "../Context/AppProvider";
-import styles from "./AddRoomModal.scss";
-import classNames from "classnames";
+
 import { addDocument } from "../../firebase/services";
 import { AuthContext } from "../Context/AuthProvider";
-
-const cx = classNames.bind(styles);
 
 export default function AddRoomModal() {
   const { isAddRoomVisible, setIsAddRoomVisible } = useContext(AppContext);

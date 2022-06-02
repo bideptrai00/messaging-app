@@ -1,10 +1,10 @@
 import React from "react";
-import { FacebookAuthProvider, signInWithPopup } from "firebase/auth";
+import { FacebookAuthProvider } from "firebase/auth";
 
 import { Row, Col, Button } from "antd";
 // import Title from "antd/lib/skeleton/Title";
 import { Typography } from "antd";
-import firebase, { auth, db } from "../../firebase/config";
+import firebase from "../../firebase/config";
 import { addDocument, generateKeywords } from "../../firebase/services";
 const { Title } = Typography;
 const fbProvider = new FacebookAuthProvider();

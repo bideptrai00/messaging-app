@@ -3,7 +3,7 @@ import React, { useContext, useEffect } from "react";
 import styles from "./UserInfo.module.scss";
 import classNames from "classnames/bind";
 import { db, auth } from "../../firebase/config";
-import { doc, onSnapshot } from "firebase/firestore";
+
 import { AuthContext } from "../Context/AuthProvider";
 
 const cx = classNames.bind(styles);

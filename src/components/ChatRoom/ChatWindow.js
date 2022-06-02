@@ -8,7 +8,6 @@ import { AppContext } from "../Context/AppProvider";
 import { addDocument } from "../../firebase/services";
 import { AuthContext } from "../Context/AuthProvider";
 import useFireStore from "../../hooks/useFireStore";
-import { formatRelative } from "date-fns/esm";
 
 const cx = classNames.bind(styles);
 
@@ -54,7 +53,7 @@ export default function ChatWindow() {
   );
 
   const messages = useFireStore("message", messCodition);
-  console.log("messages", messages);
+
   return (
     <div className={cx("wrapper-chat")}>
       <div className={cx("wrapper-header")}>
@@ -102,19 +101,23 @@ export default function ChatWindow() {
             />
           ))}
         </div>
-        <Form form={form} className={cx("form-send")}>
-          <Form.Item name="message" className={cx("form-input")}>
-            <Input
-              onPressEnter={handleEnter}
-              onChange={handleInputChange}
-              placeholder="Aa"
-              bordered={false}
-            ></Input>
-          </Form.Item>
-          <Button type="primary" onClick={handleEnter}>
-            Send
-          </Button>
-        </Form>
+        {roomCurrent ? (
+          <Form form={form} className={cx("form-send")}>
+            <Form.Item name="message" className={cx("form-input")}>
+              <Input
+                onPressEnter={handleEnter}
+                onChange={handleInputChange}
+                placeholder="Aa"
+                bordered={false}
+              ></Input>
+            </Form.Item>
+            <Button type="primary" onClick={handleEnter}>
+              Send
+            </Button>
+          </Form>
+        ) : (
+          <></>
+        )}
       </div>
     </div>
   );
