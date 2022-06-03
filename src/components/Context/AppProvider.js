@@ -18,10 +18,10 @@ export default function AppProvider({ children }) {
     return {
       fieldName: "members",
       operator: "array-contains",
-      compareValue: "v5BUmMVwJ4YEAsJ2FH1QFQJNH9D3",
+      compareValue: uid,
     };
-  }, []);
-  console.log("first", uid);
+  }, [uid]);
+
   const rooms = useFireStore("rooms", roomlist);
 
   const roomCurrent = useMemo(

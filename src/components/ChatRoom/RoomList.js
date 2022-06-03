@@ -15,7 +15,7 @@ export default function RoomList() {
 
   return (
     <Collapse className={cx("wrapper")} ghost defaultActiveKey={["1"]}>
-      <Panel className={cx("list-panel")} header="List Room" key="1">
+      <Panel className={cx("list-panel")} header="Nhóm" key="1">
         {rooms.map((room) => (
           <Typography.Link
             key={room.id}
@@ -30,7 +30,7 @@ export default function RoomList() {
           icon={<PlusSquareOutlined />}
           onClick={() => setIsAddRoomVisible(true)}
         >
-          Add Room
+          Tạo nhóm
         </Button>
       </Panel>
     </Collapse>

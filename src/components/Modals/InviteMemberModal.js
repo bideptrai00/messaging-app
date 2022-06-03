@@ -1,13 +1,12 @@
 import React, { useContext, useMemo, useState } from "react";
 import { Modal, Form, Select, Spin, Avatar } from "antd";
 import { AppContext } from "../Context/AppProvider";
-
-import { AuthContext } from "../Context/AuthProvider";
+import styles from "./InviteMemberModal.scss";
+import classNames from "classnames/bind";
 import { debounce } from "lodash";
-import { async } from "@firebase/util";
 import { db } from "../../firebase/config";
-import useFireStore from "../../hooks/useFireStore";
 
+const cx = classNames.bind(styles);
 function DebounceSelect({ fetchOptions, debounceTimeOut = 300, ...props }) {
   const [fetching, setFetching] = useState(false);
 
@@ -36,14 +35,17 @@ function DebounceSelect({ fetchOptions, debounceTimeOut = 300, ...props }) {
       notFoundContent={fetching ? <Spin size="small" /> : null}
       {...props}
     >
-      {options.map((option, index) => (
-        <Select.Option key={index} value={option.value} title={option.label}>
-          <Avatar size="small" src={option.photoURL}>
-            {option.photoURL ? "" : option.label?.charAt(0).toUpperCase()}
-          </Avatar>
-          {option.label}
-        </Select.Option>
-      ))}
+      {options.map((option, index) => {
+        console.log("opti", option);
+        return (
+          <Select.Option key={index} value={option.value} title={option.label}>
+            <Avatar className={cx("avatar")} size="small" src={option.photoURL}>
+              {option.photoURL ? "" : option.label?.charAt(0).toUpperCase()}
+            </Avatar>
+            {option.label}
+          </Select.Option>
+        );
+      })}
     </Select>
   );
 }
@@ -57,13 +59,15 @@ async function fetchUserList(searchValue, currMembers) {
     .get()
     .then((snapShot) => {
       console.log("searchValue", searchValue);
-      console.log("snapShot", snapShot);
+
       return snapShot.docs
-        .map((doc) => ({
-          label: doc.data().displayName,
-          value: doc.data().uid,
-          photoURL: doc.data().photoURL,
-        }))
+        .map((doc) => {
+          return {
+            label: doc.data().displayName,
+            value: doc.data().uid,
+            photoURL: doc.data().photoURl,
+          };
+        })
         .filter((opt) => !currMembers.includes(opt.value));
     });
 }
@@ -100,7 +104,7 @@ export default function InviteMemberModal() {
   return (
     <div>
       <Modal
-        title="MỜi thêm thành viên"
+        title="Mời thêm thành viên"
         visible={isInviteMemberModal}
         onOk={handleOK}
         onCancel={handleCancle}

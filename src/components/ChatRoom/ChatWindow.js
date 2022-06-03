@@ -72,7 +72,7 @@ export default function ChatWindow() {
               type="text"
               onClick={handleClickAddMember}
             >
-              Add
+              Mời
             </Button>
           )}
           <Avatar.Group size="small" maxCount={2}>

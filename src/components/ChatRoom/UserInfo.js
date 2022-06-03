@@ -39,7 +39,7 @@ export default function UserInfo() {
         </Typography.Text>
       </div>
       <Button ghost onClick={() => auth.signOut()}>
-        Log Out
+        Đăng xuất
       </Button>
     </div>
   );
