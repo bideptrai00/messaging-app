@@ -34,7 +34,7 @@ export default function Login() {
           <Title style={{ textAlign: "center" }} level={3}>
             Fun Chat
           </Title>
-          <Button style={{ width: " 100%", marginBottom: 5 }}>
+          <Button disabled style={{ width: " 100%", marginBottom: 5 }}>
             Đăng nhập bằng Google
           </Button>
           <Button style={{ width: " 100%" }} onClick={handleFbLogin}>
